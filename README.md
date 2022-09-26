@@ -1,2 +1,2 @@
 # vue3-tab
-Bootstrap needed
+Bootstrap css needed.
