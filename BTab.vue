@@ -1,5 +1,7 @@
 <script setup>
+
 import { ref, inject, watch, onBeforeMount } from 'vue'
+
 const props = defineProps({
     title: String,
     active: {
@@ -31,15 +33,11 @@ onBeforeMount(() => {
     isActive.value = index.value === tabProvider.value.active;
 });
 
-const setActive = ()=>{
-    if(!props?.disabled){
-        tabProvider.value.active = index.value
-    }
-}
+
 
 </script>
 <template>
-    <li class="nav-item" @click="setActive">        
-        <a class="nav-link" :class="{'active': isActive, 'disabled':disabled}" aria-current="page" href="#">{{title}}</a>
-    </li>
+<div class="tab-pane fade" :class="{'show active': tabProvider?.active == index}"  role="tabpanel" tabindex="0">
+    <slot/>
+</div>
 </template>
